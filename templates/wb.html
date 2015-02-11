@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Create WorkBook here</h3>
+
+<form method="get" action="">{% csrf_token %}
+<input type="submit" value="Create Workbook" class="btn" name="bbtn"/>
+</form>
+<h3><a href="/download/final/final.xlsx">Download WorkBook</a></h3>
+<h3><a href="{% url 'list' %}">Home</a></h3>
+
+{% endblock %}

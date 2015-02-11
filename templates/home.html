@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Merge .xlsx files</h3>
+
+<form method="get" action="">{% csrf_token %} <!-- /home2 -->
+
+
+<input type="submit" value="Merge" class="btn" name="mybtn"/>
+<!--<input type="submit" value="Workbook" class="btn" name="bbtn"/>-->
+
+
+</form>
+<!--<form method="get" action="">{% csrf_token %}
+<input type="submit" value="Delete" class="btn" name="delbtn"/>
+</form>-->
+
+<h4><a href="{% url 'list' %}">Upload some more files</a></h4>
+<h4><a href="{% url 'wb' %}">Proceed to create workbook</a></h4>
+<!--<h3><a href="/download/final/final.xlsx">Download WorkBook</a></h3>-->
+
+{% endblock %}

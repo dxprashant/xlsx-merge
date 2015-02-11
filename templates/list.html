@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>  
+		
+    </head>
+    <body>
+	<h2>Upload your .xlsx files</h2>
+    <!-- List of uploaded documents -->
+	<p>List of your uploaded files.</p>
+   {% if documents %}
+        <ul>
+        {% for document in documents %}
+         <!--imp thing keep it for future ref   <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li> -->
+		 <li> {{ document.docfile.name }} </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No documents.</p>
+    {% endif %} 
+
+        <!-- Upload form. Note enctype attribute! -->
+        <form action="{% url 'list' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+		<!--	<input type="file" multiple name='docfile'/> -->
+          <p>{{ form.non_field_errors }}</p>
+           <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p> 
+            <p>
+                {{ form.docfile.errors }}
+                {{ form.docfile }}
+            </p> 
+			<p>{{ doc }} </p>
+            <p><input type="submit" value="Upload" /></p> 
+	
+
+        </form> 
+		<!--<h2><a href="{% url 'list' %}" name="showbtn">show</a></h2>-->
+		
+	<!-- <div>
+    <input type="submit" name="showbtn" value="Button" class="btn" />  
+</div> -->
+		
+		<h3><a href="{% url 'home' %}">Proceed to merge files</a></h3>
+    </body>
+</html> 
+
+<!--{% url 'list' %}-->
+
